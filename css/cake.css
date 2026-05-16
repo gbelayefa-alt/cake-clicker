@@ -1,0 +1,364 @@
+/* cake.css */
+/*
+Authors: Harshini Lakshman and Amanda Gbe
+Date: February 4th, 2026
+Description: This is the CSS file for the incremental clicker game, based on Cookie Clicker, using our own theme
+and reward systems. 
+*/
+
+/* ---------------- General Formatting ---------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fdf1e7, #f8d7c4);
+  font-family: "Nunito", sans-serif;
+  color: #5a4a4a;
+}
+
+/* ---------------- Top Bar and title formatting ---------------- */
+#topBar {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 1rem;
+}
+
+#topBar .title {
+  margin: 0;
+  padding: 0;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 24px;
+  color: #ff7fa4;
+  padding: 8px 15px;
+  display: inline-block;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#clickArea .title,
+#upgradeArea .title,
+#rewardArea .title {
+  font-size: 16px;
+}
+
+/* ---------------- Formatting of three main sections ---------------- */
+#clickArea,
+#upgradeArea,
+#rewardArea {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 7px 10px rgba(255, 143, 169, 0.451);
+}
+
+#game {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.description {
+  margin: 10px;
+  margin-top: 0;
+  padding: 8px;
+}
+
+/* Left */
+#clickArea {
+  width: 28%;
+  padding: 1rem;
+}
+
+/* Middle */
+#upgradeArea {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Right: */
+#rewardArea {
+  width: 300px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.separator {
+  width: 16px;
+  background: #EDBE9D;
+}
+
+#upgradeArea,
+#rewardArea {
+  overflow-y: auto;
+}
+
+#selections {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- Scoreboard ---------------- */
+#scoreboard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 18px rgba(255, 143, 169, 0.451);
+}
+
+#scoreboard p {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* ---------------- Buttons ---------------- */
+#bigCake {
+  background: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  padding-top: 40px;
+}
+
+#bigCake img {
+  width: 280px;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease-in-out;
+}
+
+#bigCake img:hover {
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+button {
+  background: linear-gradient(145deg, #ff9eb5, #ff7fa4);
+  box-shadow: 0 6px 0 #d86a8c;
+  transition: all 0.15s ease;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #d86a8c;
+}
+
+button:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  filter: grayscale(30%);
+}
+
+/* ---------------- Rewards ---------------- */
+.rewardUnlocked {
+  opacity: 0;
+  transition: all 0.5s ease;
+  transform: scale(0.8);
+  background-color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px dashed #ffd1dc;
+  box-shadow: 0 6px 15px rgba(255, 143, 169, 0.451);
+  font-weight: 400;
+}
+
+.rewardUnlocked.unlocked {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  background: linear-gradient(145deg, #fff0f5, #ffe4ec);
+  border: 2px solid #ff9eb5;
+  box-shadow: 0 6px 15px rgba(255, 143, 169, 0.451);
+  color: #FF69B4;
+  font-weight: bold;
+}
+
+/* ---------------- Trophy Pop up ---------------- */
+#trophyPopup {
+  position: fixed;
+  bottom: 30px;
+  right: -350px;
+  width: 320px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: right 0.4s ease;
+  z-index: 9999;
+  background: none;
+}
+
+#trophyPopup.show {
+  right: 30px;
+}
+
+#trophyIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+
+}
+
+/* ---------------- Baker (adding Hire Baker upgrade) ---------------- */
+.baker {
+  position: absolute;
+  font-size: 26px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.baker.bounce {
+  animation: bakerBounce 0.35s ease;
+}
+
+.floatingNumber {
+  position: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  color: #FF69B4;
+  pointer-events: none;
+  animation: floatUp 0.8s ease-out forwards;
+}
+
+/* ---------------- Help Pop Up ---------------- */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 143, 169, 0.451);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-family: "Nunito", sans-serif;
+}
+
+.popupContent {
+  background-color: white;
+  padding: 30px;
+  width: 600px;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(255, 143, 169, 0.451);
+  text-align: left;
+  animation: popIn 0.3s ease;
+}
+
+.popupContent h2 {
+  color: #ff7fa4;
+  margin-bottom: 10px;
+}
+
+.popupContent ul {
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.popupContent li {
+  margin-bottom: 5px;
+}
+
+#close {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ff7fa4;
+}
+
+#close:hover {
+  color: #d86a8c;
+}
+
+/* ---------------- Animations ---------------- */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+}
+
+@keyframes bakerBounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  40% {
+    transform: translate(-50%, -60%) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ---------------- Media Querries for Responsive Design ---------------- */
+@media screen and (max-width: 1180px) {
+  #bigCake img {
+    width: 200px;
+  }
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<!--
+Authors: Harshini Lakshman and Amanda Gbe
+Date: February 4th, 2026
+Description: This is the HTML file for the incremental clicker game, based on Cookie Clicker, using our own theme
+and reward systems.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Cake Clicker Game</title>
+  <link rel="stylesheet" href="./css/cake.css">
+  <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+  <audio id="bgMusic" src="audio/bakery-music.mp3" loop></audio>
+</head>
+
+<body>
+  <div id="container">
+
+    <div id="topBar">
+      <div class="title">
+        <h1>Welcome to Cake Clicker!</h1>
+      </div>
+      <button id="helpButton">Help</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <div id="game">
+
+      <div id="clickArea">
+        <div class="title">
+          <h1>Cake Clicker</h1>
+        </div>
+
+        <div id="scoreboard">
+          <p><span>Cakes:</span> <span id="cakeCount">0</span></p>
+          <p><span>Click value:</span> <span id="clickValue">1</span></p>
+          <p><span>Upgrades you own:</span> <span id="upgradesOwned">0</span></p>
+          <p><span>Cakes per second:</span> <span id="cakesPerSecond">0</span></p>
+        </div>
+
+        <button id="bigCake">
+          <img src="images/birthday-cake.png" alt="Cake">
+        </button>
+
+      </div>
+
+      <div id="upgradeArea">
+        <div class="title">
+          <h1>Store</h1>
+        </div>
+        <p class="description">The more cakes you click, the more upgrades you can purchase!</p>
+        <div id="selections">
+          <button class="upgrades" id="upClick1">Increase Click Value (+1 click) Cost: 10 Cakes</button>
+          <button class="upgrades" id="upClick2">Increase Click Value (+5 click) Cost: 50 Cakes</button>
+          <button class="upgrades" id="upClick3">Increase Click Value (+10 click) Cost: 100 Cakes</button>
+          <button class="upgrades" id="autoClick">Hire Baker (auto click) Cost: 200 Cakes</button>
+          <button class="upgrades" id="autoClick2">Install Turbo Oven (1 cake/sec) Cost: 300 Cakes</button>
+        </div>
+      </div>
+
+      <div id="rewardArea">
+        <div class="title">
+          <h1>Rewards</h1>
+        </div>
+        <p class="description">Here are your achievements.</p>
+        <div id="rewards">
+          <div class="rewardUnlocked" id="reward1">🏆 First Cake (1 cake)</div>
+          <div class="rewardUnlocked" id="reward2">🏆 Baking School Graduate (100 cakes)</div>
+          <div class="rewardUnlocked" id="reward3">🏆 Opening a bakery (1000 cakes)</div>
+          <div class="rewardUnlocked" id="reward4">🏆 Opening a cake factory (10000 cakes)</div>
+          <div class="rewardUnlocked" id="reward5">🏆 Opening a bakery chain (100000 cakes)</div>
+          <div class="rewardUnlocked" id="reward6">🏆 Upgrade master (50 upgrades)</div>
+          <div class="rewardUnlocked" id="reward7">🏆 Upgrade demon (100 upgrades)</div>
+          <div class="rewardUnlocked" id="reward8">🏆 Opening a baking class (5 bakers)</div>
+          <div class="rewardUnlocked" id="reward9">🏆 Opening a baking school (15 bakers)</div>
+        </div>
+      </div>
+
+    </div>
+    <div id="trophyPopup">
+      <img id="trophyIcon" src="images/trophy.jpg" alt="Trophy">
+      <span id="trophyText">Achievement Unlocked!</span>
+    </div>
+
+  </div>
+  <!--Help Popup-->
+  <div id="helpPop" class="popup">
+    <div class="popupContent">
+      <span id="close">&times;</span>
+      <h2>How to play Cake Clicker</h2>
+      <p><strong>Goal:</strong> Bake as many cakes as possible!</p>
+      <p><strong>Instructions:</strong></p>
+      <ul>
+        <li>Click the big cake to bake cakes.</li>
+        <li>Each click adds cakes based on your <strong>click value</strong>, which you can see on your scoreboard.</li>
+        <li>Buy upgrades in the Store when you have enough cakes.</li>
+        <li>As you bake more cakes, you can unlock milestones in <strong>Rewards</strong>.</li>
+      </ul>
+      <p><strong>Upgrades:</strong></p>
+      <ul>
+        <li>First click value upgrade that increases click value by <strong>one cake</strong>. 10 cakes
+          to unlock.</li>
+        <li>Second click value upgrade that increases click value by <strong>five cakes</strong>. 50
+          cakes to unlock.</li>
+        <li>Third click value upgrade that increases click value by <strong>ten cakes</strong>. 100
+          cakes to unlock.</li>
+        <li>Hiring baker upgrade adds a new baker that automatically clicks <strong>every second</strong>. 200 cakes to unlock</li>
+        <li>Installing turbo ovens allows every baker to increase the <strong>frequency of clicks</strong> every time it
+          is purchased. 300 cakes to unlock</li>
+      </ul>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
