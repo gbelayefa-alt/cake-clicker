@@ -18,7 +18,7 @@ This project strengthened my experience collaborating on software development an
 - Incremental gameplay mechanics
 
 ## How to Run
-1. Run the `index.html` file in a web browser
+** Live site: ** https://cake-clicker-one.vercel.app/
 
 ## Why This Project Matters
 - Demonstrates interactive web development using JavaScript and DOM manipulation
